@@ -23,3 +23,14 @@ after_success:
   - docker push makkii/multi-nginx
   - docker push makkii/multi-server
   - docker push makkii/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-south-1'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_path: 'docker-react'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
