@@ -18,7 +18,8 @@ after_success:
   - docker build -t makkii/multi-server ./server
   - docker build -t makkii/multi-worker ./worker
   # Login to docker CLI
-  - $echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # - $echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login --username "$DOCKER_ID" --password "$DOCKER_PASSWORD"
   # Take those images and push to docker hub
   - docker push makkii/multi-client
   - docker push makkii/multi-nginx
