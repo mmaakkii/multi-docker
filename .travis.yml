@@ -12,6 +12,7 @@ services:
 #   - docker run -e CI=true makkii/react-test npm test
 
 after_success:
+  - docker logout
   - docker build -t makkii/multi-client ./client
   - docker build -t makkii/multi-nginx ./nginx
   - docker build -t makkii/multi-server ./server
