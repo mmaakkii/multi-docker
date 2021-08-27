@@ -77,5 +77,8 @@ services:
     image: "makkii/multi-nginx"
     mem_limit: 128m
     hostname: nginx
+    depends_on: 
+      - client
+      - api
     ports:
       - "80:80"
